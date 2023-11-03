@@ -1,0 +1,30 @@
+.loading {
+  @apply inline-flex items-center;
+}
+.loading span {
+  @apply w-1 h-1 bg-[color:var(--accents-6)] inline-block mx-px my-0 rounded-[50%];
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+.loading span:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.loading span:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+@keyframes blink {
+  0% {
+    @apply opacity-20;
+  }
+  20% {
+    @apply opacity-100;
+  }
+  100% {
+    @apply opacity-20;
+  }
+}
+.child {
+  @apply text-[color:var(--secondary)] text-[0.9rem] mr-3;
+}

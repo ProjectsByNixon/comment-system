@@ -1,0 +1,68 @@
+.button {
+  @apply text-[color:var(--themed-fg,var(--background))] border border-[color:var(--themed-border,var(--foreground))] font-medium flex justify-center items-center transition-[border-color,background,color] duration-[0.15s] ease-[ease] text-sm h-10 cursor-pointer no-underline px-3 py-0 rounded-[5px] border-solid;
+  background: var(--themed-bg, var(--foreground));
+}
+.button[disabled] {
+  @apply text-[color:var(--accents-3)] border-[color:var(--accents-2)] cursor-not-allowed;
+  background: var(--accents-1);
+}
+.loading {
+  @apply mr-2;
+}
+.loading span {
+  @apply bg-[color:var(--accents-3)];
+}
+
+/** Type **/
+.secondary {
+  --themed-bg: var(--background);
+  --themed-fg: var(--secondary);
+  --themed-border: var(--accents-2);
+}
+.success {
+  --themed-fg: #fff;
+  --themed-bg: var(--success);
+  --themed-border: var(--success);
+}
+.error {
+  --themed-fg: #fff;
+  --themed-bg: var(--error);
+  --themed-border: var(--error);
+}
+
+/** Size **/
+.small {
+  @apply h-8 text-sm;
+}
+.large {
+  @apply h-12 text-base;
+}
+
+/** Variants **/
+.invert:not([disabled]):hover {
+  @apply text-[color:var(--themed-bg,var(--foreground))];
+  background: transparent;
+}
+.invert:not([disabled]):active {
+  background: var(--accents-2);
+}
+.invert:not([disabled]).secondary:hover {
+  @apply text-[color:var(--foreground)] border-[color:var(--foreground)];
+}
+.ghost {
+  @apply text-[color:var(--themed-bg)] bg-[linear-gradient(_to_right,var(--lighten-color),var(--lighten-color)_)] border-transparent;
+  background: none;
+  --lighten-color: hsla(0, 0%, 100%, 0.8);
+}
+[data-theme='dark'] .ghost {
+  --lighten-color: rgba(0, 0, 0, 0.75);
+}
+.ghost:not([disabled]):hover {
+  @apply bg-[color:var(--themed-bg,var(--accents-4))];
+}
+.ghost:not([disabled]):focus {
+  --lighten-color: hsla(0, 0%, 100%, 0.7);
+}
+[data-theme='dark'] .ghost:not([disabled]):focus {
+  --lighten-color: rgba(0, 0, 0, 0.7);
+}
